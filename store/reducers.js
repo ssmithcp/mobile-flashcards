@@ -12,6 +12,7 @@ export default function decks(state = {}, action) {
       ...state,
       [action.deckTitle]: {
         title: action.deckTitle,
+        timestamp: Date.now(),
         cards: [],
       },
     }
@@ -28,7 +29,7 @@ export default function decks(state = {}, action) {
     return {
       ...state,
       [action.deckTitle]: {
-        title: action.deckTitle,
+        ...state[action.deckTitle],
         cards: state[action.deckTitle].cards.concat([ newQuestion ]),
       }
     }

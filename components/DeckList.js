@@ -1,31 +1,26 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { connect } from 'react-redux'
 
-function DeckList() {
+import { View } from 'react-native'
+
+import { H2 } from '../helpers/ui'
+
+function DeckList({ decks }) {
+  console.log('ordered decks are:', decks)
+
   return (
     <View>
-      <Text>List of decks here!</Text>
+      { decks.map(deck => (
+          <H2 key={ deck.timestamp }>{ deck.title }</H2>
+      ))}
     </View>
   )
 }
 
-export default DeckList
+function mapStateToProps({ decks }) {
+  return {
+    decks: Object.values(decks).sort((d0, d1) => d1.timestamp - d0.timestamp),
+  }
+}
 
-// export default function App() {
-//   const data = [...Array(50).keys()]
-//   const renderItem = ({ item }) => (
-//     <View style={styles.box} key={ item }>
-//       <Text>This is text item { item }!!!!</Text>
-//     </View>
-//   )
-
-//   return (
-//     <View style={styles.container}>
-//       <FlatList
-//         data={ data }
-//         renderItem={ renderItem }
-//       />
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
+export default connect(mapStateToProps)(DeckList)

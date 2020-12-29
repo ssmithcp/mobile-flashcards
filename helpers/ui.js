@@ -54,7 +54,7 @@ const DefaultInput = styled.TextInput`
   margin-bottom: 20px;
 `
 
-export function TextInput ({ children, ...rest }){
+export function TextInput({ children, ...rest }) {
   return (
     <DefaultInput { ...rest } >
       {children}
@@ -62,3 +62,16 @@ export function TextInput ({ children, ...rest }){
   )
 }
 
+const DefaultButton = styled.TouchableOpacity`
+  padding: 20px 40px;
+  border: 1px black solid;
+  border-radius: 5px;
+`
+
+export function Button({ children, ...rest }) {
+  return (
+    <DefaultButton { ...rest }>
+      { children }
+    </DefaultButton>
+  )
+}

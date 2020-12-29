@@ -1,5 +1,9 @@
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 
 import reducers from './reducers'
 
-export default createStore(reducers)
+const combined = combineReducers({
+  decks: reducers,
+})
+
+export default createStore(combined)

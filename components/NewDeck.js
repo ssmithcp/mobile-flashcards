@@ -3,20 +3,39 @@ import { connect } from 'react-redux'
 
 import { Text } from 'react-native'
 
-import { CenteredContainer, H1, H2, TextInput } from '../helpers/ui'
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { newDeck } from '../store/actions'
 
-function NewDeck() {
+import { CenteredContainer, H1, H2, TextInput, Button } from '../helpers/ui'
+import { green } from '../helpers/colors'
+
+function NewDeck({ newDeck, navigation }) {
+  const [deckTitle, setDeckTitle] = React.useState('')
+
+  const addDeckByTitle = () => {
+    newDeck(deckTitle)
+    setDeckTitle('')
+    navigation.navigate('Decks')
+  }
+
   return (
     <CenteredContainer>
       <H1>Add a new deck!</H1>
       <H2>Enter deck title:</H2>
-      <TextInput />
-      <TouchableOpacity>
-        <Text>Add!</Text>
-      </TouchableOpacity>
+      <TextInput
+        onChangeText={ text => setDeckTitle(text) }
+        value={ deckTitle }
+        placeholder={ 'Deck title' }
+        onSubmitEditing={ addDeckByTitle }
+      />
+      <Button
+        style={ { backgroundColor: green } }
+        disabled={ deckTitle === '' }
+        onPress={ addDeckByTitle }
+      >
+        <Text style={ { fontSize: 20 } }>Add!</Text>
+      </Button>
     </CenteredContainer>
   )
 }
 
-export default connect()(NewDeck)
+export default connect(null, { newDeck })(NewDeck)
