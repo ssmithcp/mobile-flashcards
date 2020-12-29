@@ -1,17 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { View } from 'react-native'
+import { FlatList } from 'react-native'
 
 import DeckSummaryCard from './DeckSummaryCard'
 
 function DeckList({ decks }) {
-  console.log('ordered decks are:', decks)
+  console.log('sorted decks are: ', decks)
+
+  const renderSummary = ({ item }) => <DeckSummaryCard id={ item.id } />
 
   return (
-    <View>
-      { decks.map(deck => <DeckSummaryCard key={ deck.id } id={ deck.id } />) }
-    </View>
+    <FlatList
+      data={ decks }
+      renderItem={ renderSummary }
+      keyExtractor={ deck => deck.id }
+    />
   )
 }
 

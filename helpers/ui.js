@@ -1,12 +1,13 @@
 import React from 'react'
-import { ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { ScrollView, KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 
 import Constants from 'expo-constants'
 
 import styled from 'styled-components';
 
-const Centered = styled.View`
-  flex: 1;
+import { white } from './colors'
+
+export const Centered = styled.View`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,5 +74,32 @@ export function Button({ children, ...rest }) {
     <DefaultButton { ...rest }>
       { children }
     </DefaultButton>
+  )
+}
+
+const styles = StyleSheet.create({
+  shadowBox: {
+    backgroundColor: white,
+    borderRadius: 16,
+    padding: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 17,
+    justifyContent: 'center',
+    shadowRadius: 3,
+    shadowOpacity: 0.8,
+    shadowColor: 'rgba(0, 0, 0, 0.24)',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+  },
+})
+
+export function Card({ children, style, ...rest }) {
+  return (
+    <View style={ [styles.shadowBox, style] } { ...rest }>
+      { children }
+    </View>
   )
 }
