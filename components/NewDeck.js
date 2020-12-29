@@ -1,12 +1,29 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { connect } from 'react-redux'
+
+import { Text } from 'react-native'
+
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Button = styled.button`
+`;
 
 function NewDeck() {
   return (
-    <View>
+    <Container style={ { flex: 1 } }>
       <Text>Add a new deck!</Text>
-    </View>
+      <Button>
+        Add Deck!
+      </Button>
+    </Container>
   )
 }
 
-export default NewDeck
+export default connect()(NewDeck)

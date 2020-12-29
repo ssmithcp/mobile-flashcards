@@ -1,4 +1,4 @@
-import { RECEIVE_DECKS, NEW_DECK, ADD_CARD_TO_DECK } from './actions'
+import { RECEIVE_DECKS, NEW_DECK, ADD_CARD_TO_DECK, REMOVE_DECK } from './actions'
 
 export default function decks(state = {}, action) {
   switch (action.type) {
@@ -11,9 +11,14 @@ export default function decks(state = {}, action) {
     return {
       ...state,
       [action.deckTitle]: {
+        title: action.deckTitle,
         cards: [],
       },
     }
+  case REMOVE_DECK:
+    const stateCopy = { ... state }
+    delete stateCopy[action.deckTitle]
+    return stateCopy
   case ADD_CARD_TO_DECK:
     const newQuestion = {
       question: action.question,
@@ -23,6 +28,7 @@ export default function decks(state = {}, action) {
     return {
       ...state,
       [action.deckTitle]: {
+        title: action.deckTitle,
         cards: state[action.deckTitle].cards.concat([ newQuestion ]),
       }
     }
