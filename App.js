@@ -1,18 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import React from 'react'
+import { StyleSheet, View, StatusBar } from 'react-native'
+import Constants from 'expo-constants'
+
+import { NavigationContainer } from '@react-navigation/native'
+
+import DeckTabDisplay from './components/DeckTabDisplay'
+
+
+function DefaultStatusBar({backgroundColor, ...props}) {
+  return (
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+    </View>
+  )
+}
+
 
 export default function App() {
-  const data = [...Array(50).keys()]
-  const renderItem = ({ item }) => (<Text key={ item }>This is text item { item }!!!!</Text>)
-
   return (
     <View style={styles.container}>
-      <FlatList
-        data={ data }
-        renderItem={ renderItem }
-      />
-      <StatusBar style="auto" />
+      <DefaultStatusBar backgroundColor={'#000000'} barStyle="light-content" />
+      <NavigationContainer>
+        <DeckTabDisplay />
+      </NavigationContainer>
     </View>
   );
 }
@@ -21,7 +31,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
   },
-});
+  box: {
+    height: 50,
+    backgroundColor: '#e76e63',
+    margin: 10,
+  }
+})
