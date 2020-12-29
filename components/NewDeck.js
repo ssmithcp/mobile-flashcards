@@ -3,26 +3,19 @@ import { connect } from 'react-redux'
 
 import { Text } from 'react-native'
 
-import styled from 'styled-components';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Button = styled.button`
-`;
+import { CenteredContainer, H1, H2, TextInput } from '../helpers/ui'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function NewDeck() {
   return (
-    <Container style={ { flex: 1 } }>
-      <Text>Add a new deck!</Text>
-      <Button>
-        Add Deck!
-      </Button>
-    </Container>
+    <CenteredContainer>
+      <H1>Add a new deck!</H1>
+      <H2>Enter deck title:</H2>
+      <TextInput />
+      <TouchableOpacity>
+        <Text>Add!</Text>
+      </TouchableOpacity>
+    </CenteredContainer>
   )
 }
 
