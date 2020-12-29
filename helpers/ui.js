@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView } from 'react-native';
+import { ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 
 import Constants from 'expo-constants'
 
@@ -18,17 +18,22 @@ export function CenteredContainer({ children }) {
   const toolBarHeight = Constants.statusBarHeight;
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
-      <Centered style={ { marginTop: -(toolBarHeight) }}>
-        { children }
-      </Centered>
-    </ScrollView>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={ { flex: 1, marginTop: -(toolBarHeight) }}
+    >
+      <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
+        <Centered>
+          { children }
+        </Centered>
+      </ScrollView>
+    </KeyboardAvoidingView>
   )
 }
 
 export const H1 = styled.Text`
   font-size: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `
 
 export const H2 = styled.Text`
