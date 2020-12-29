@@ -12,6 +12,7 @@ function NewDeck({ newDeck, navigation }) {
   const [deckTitle, setDeckTitle] = React.useState('')
 
   const addDeckByTitle = () => {
+    // XXX need to add promises!
     newDeck(deckTitle)
     setDeckTitle('')
     navigation.navigate('Decks')

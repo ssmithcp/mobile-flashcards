@@ -3,16 +3,14 @@ import { connect } from 'react-redux'
 
 import { View } from 'react-native'
 
-import { H2 } from '../helpers/ui'
+import DeckSummaryCard from './DeckSummaryCard'
 
 function DeckList({ decks }) {
   console.log('ordered decks are:', decks)
 
   return (
     <View>
-      { decks.map(deck => (
-          <H2 key={ deck.timestamp }>{ deck.title }</H2>
-      ))}
+      { decks.map(deck => <DeckSummaryCard key={ deck.id } id={ deck.id } />) }
     </View>
   )
 }

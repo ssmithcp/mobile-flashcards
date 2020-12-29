@@ -1,4 +1,6 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+
+import thunk from 'redux-thunk'
 
 import reducers from './reducers'
 
@@ -6,4 +8,6 @@ const combined = combineReducers({
   decks: reducers,
 })
 
-export default createStore(combined)
+const middleware = applyMiddleware(thunk)
+
+export default createStore(combined, middleware)

@@ -10,7 +10,8 @@ export default function decks(state = {}, action) {
   case NEW_DECK:
     return {
       ...state,
-      [action.deckTitle]: {
+      [action.id]: {
+        id: action.id,
         title: action.deckTitle,
         timestamp: Date.now(),
         cards: [],
@@ -18,7 +19,7 @@ export default function decks(state = {}, action) {
     }
   case REMOVE_DECK:
     const stateCopy = { ... state }
-    delete stateCopy[action.deckTitle]
+    delete stateCopy[action.id]
     return stateCopy
   case ADD_CARD_TO_DECK:
     const newQuestion = {
@@ -28,9 +29,9 @@ export default function decks(state = {}, action) {
 
     return {
       ...state,
-      [action.deckTitle]: {
-        ...state[action.deckTitle],
-        cards: state[action.deckTitle].cards.concat([ newQuestion ]),
+      [action.id]: {
+        ...state[action.id],
+        cards: state[action.id].cards.concat([ newQuestion ]),
       }
     }
   default:
