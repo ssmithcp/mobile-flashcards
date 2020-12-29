@@ -2,10 +2,7 @@ import React from 'react'
 import { StyleSheet, View, StatusBar } from 'react-native'
 import Constants from 'expo-constants'
 
-import { NavigationContainer } from '@react-navigation/native'
-
-import DeckTabDisplay from './components/DeckTabDisplay'
-
+import MainContainer from './components/MainContainer'
 
 function DefaultStatusBar({backgroundColor, ...props}) {
   return (
@@ -15,16 +12,13 @@ function DefaultStatusBar({backgroundColor, ...props}) {
   )
 }
 
-
 export default function App() {
   return (
     <View style={styles.container}>
       <DefaultStatusBar backgroundColor={'#000000'} barStyle="light-content" />
-      <NavigationContainer>
-        <DeckTabDisplay />
-      </NavigationContainer>
+      <MainContainer />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
