@@ -14,11 +14,14 @@ export function receiveDecks(decks) {
 
 export function newDeck(deckTitle) {
   return dispatch => saveDeck(deckTitle)
-    .then(id => dispatch({
-      type: NEW_DECK,
-      id,
-      deckTitle,
-    }))
+    .then(id => {
+      dispatch({
+        type: NEW_DECK,
+        id,
+        deckTitle,
+      })
+      return id
+    })
 }
 
 export function removeDeck(id) {

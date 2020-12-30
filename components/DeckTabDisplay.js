@@ -9,8 +9,14 @@ const Tab = createMaterialTopTabNavigator();
 function DeckTabDisplay() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Decks" component={ DeckList } />
-      <Tab.Screen name="New Deck" component={ NewDeck } />
+      <Tab.Screen
+        name="Decks"
+        children={ () => <DeckList /> }
+      />
+      <Tab.Screen
+        name="New Deck"
+        children={ () => <NewDeck /> }
+      />
     </Tab.Navigator>
   )
 }

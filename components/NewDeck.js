@@ -12,10 +12,9 @@ function NewDeck({ newDeck, navigation }) {
   const [deckTitle, setDeckTitle] = React.useState('')
 
   const addDeckByTitle = () => {
-    // XXX need to add promises!
     newDeck(deckTitle)
-    setDeckTitle('')
-    navigation.navigate('Decks')
+      .then(() => navigation.navigate('Decks'))
+      .then(() => setDeckTitle(''))
   }
 
   return (
@@ -29,7 +28,6 @@ function NewDeck({ newDeck, navigation }) {
         onSubmitEditing={ addDeckByTitle }
       />
       <Button
-        style={ { backgroundColor: green } }
         disabled={ deckTitle === '' }
         onPress={ addDeckByTitle }
       >

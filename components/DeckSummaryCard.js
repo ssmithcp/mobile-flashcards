@@ -7,8 +7,12 @@ import { Card, Centered, H2 } from '../helpers/ui'
 import { gray } from '../helpers/colors'
 
 function DeckSummaryCard({ deck }) {
+  const goToDeckDetails = () => {
+    console.log('going to details!')
+  }
+
   return (
-    <Card>
+    <Card onPress={ goToDeckDetails }>
       <Centered>
         <H2>{ deck.title }</H2>
         <Text
@@ -22,7 +26,6 @@ function DeckSummaryCard({ deck }) {
 }
 
 function mapStateToProps({ decks }, { id }) {
-  console.log('got id: ', id)
   return {
     deck: decks[id],
   }

@@ -53,6 +53,7 @@ const DefaultInput = styled.TextInput`
   border: 1px black solid;
   border-radius: 5px;
   margin-bottom: 20px;
+  padding: 10px;
 `
 
 export function TextInput({ children, ...rest }) {
