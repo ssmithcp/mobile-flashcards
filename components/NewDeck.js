@@ -21,7 +21,8 @@ function NewDeck({ newDeck, navigation }) {
       <H1>Add a new deck!</H1>
       <H2>Enter deck title:</H2>
       <TextInput
-        onChangeText={ text => setDeckTitle(text) }
+        autoCorrect={ false }
+        onChangeText={ setDeckTitle }
         value={ deckTitle }
         placeholder={ 'Deck title' }
         onSubmitEditing={ addDeckByTitle }

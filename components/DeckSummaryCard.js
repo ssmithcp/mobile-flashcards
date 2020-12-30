@@ -1,26 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { Text } from 'react-native'
+import { Text, Animated } from 'react-native'
 
 import { Card, Centered, H2 } from '../helpers/ui'
 import { gray } from '../helpers/colors'
 
-function DeckSummaryCard({ deck, doAnimation }) {
-  const [hasAnimated, setHasAnimated] = React.useState(false)
+function DeckSummaryCard({ deck }) {
+  const [ animationOpacity ] = React.useState(new Animated.Value(0))
 
-  const animateNow = !hasAnimated && doAnimation
-  if (animateNow) {
-    setHasAnimated(true)
-    console.log('doing new card animation for deck: ', deck.id)
-  }
+  React.useEffect(
+    () => {
+        Animated.timing(animationOpacity, {
+          toValue: 1,
+          duration: 1250,
+         useNativeDriver: true,
+      }).start() },
+    [animationOpacity])
+
 
   const goToDeckDetails = () => {
     console.log('going to details!')
   }
 
   return (
-    <Card onPress={ goToDeckDetails }>
+    <Card onPress={ goToDeckDetails } style={ { opacity: animationOpacity } }>
       <Centered>
         <H2>{ deck.title }</H2>
         <Text

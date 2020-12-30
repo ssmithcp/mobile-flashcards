@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
+import { ScrollView, KeyboardAvoidingView, Platform, StyleSheet, Animated } from 'react-native';
 
 import Constants from 'expo-constants'
 
@@ -99,8 +99,8 @@ const styles = StyleSheet.create({
 
 export function Card({ children, style, ...rest }) {
   return (
-    <View style={ [styles.shadowBox, style] } { ...rest }>
+    <Animated.View style={ [styles.shadowBox, style] } { ...rest }>
       { children }
-    </View>
+    </Animated.View>
   )
 }
