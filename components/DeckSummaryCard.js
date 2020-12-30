@@ -6,7 +6,15 @@ import { Text } from 'react-native'
 import { Card, Centered, H2 } from '../helpers/ui'
 import { gray } from '../helpers/colors'
 
-function DeckSummaryCard({ deck }) {
+function DeckSummaryCard({ deck, doAnimation }) {
+  const [hasAnimated, setHasAnimated] = React.useState(false)
+
+  const animateNow = !hasAnimated && doAnimation
+  if (animateNow) {
+    setHasAnimated(true)
+    console.log('doing new card animation for deck: ', deck.id)
+  }
+
   const goToDeckDetails = () => {
     console.log('going to details!')
   }

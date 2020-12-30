@@ -6,14 +6,13 @@ import { Text } from 'react-native'
 import { newDeck } from '../store/actions'
 
 import { CenteredContainer, H1, H2, TextInput, Button } from '../helpers/ui'
-import { green } from '../helpers/colors'
 
 function NewDeck({ newDeck, navigation }) {
   const [deckTitle, setDeckTitle] = React.useState('')
 
   const addDeckByTitle = () => {
     newDeck(deckTitle)
-      .then(() => navigation.navigate('Decks'))
+      .then(id => navigation.navigate('Decks', { newDeckId: id }))
       .then(() => setDeckTitle(''))
   }
 

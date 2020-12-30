@@ -11,11 +11,11 @@ function DeckTabDisplay() {
     <Tab.Navigator>
       <Tab.Screen
         name="Decks"
-        children={ () => <DeckList /> }
+        component={ DeckList }
       />
       <Tab.Screen
         name="New Deck"
-        children={ () => <NewDeck /> }
+        component={ NewDeck }
       />
     </Tab.Navigator>
   )

@@ -9,19 +9,24 @@ class DeckList extends React.Component {
   state = {
     knownDecks: [],
   }
+  getNewDeckId() {
+    const { route: { params } } = this.props
+    return params
+      ? params.newDeckId
+      : null
+  }
 
   componentDidUpdate() {
-    const { decks, route: { params } } = this.props
-    console.log('will update decks: ', decks)
-    console.log('will update params: ', params)
+    const newDeckId = this.getNewDeckId()
+    const { decks } = this.props
 
-    if (params && params.scrollToDeck) {
+    if (newDeckId) {
       let scrollToIndex = -1
 
       for (let ctr = 0; ctr < decks.length; ++ctr) {
         const deck = decks[ctr]
 
-        if (deck.id === params.scrollToDeck) {
+        if (deck.id === newDeckId) {
           scrollToIndex = ctr;
           break;
         }
@@ -37,7 +42,9 @@ class DeckList extends React.Component {
 
   render() {
     const { decks } = this.props
-    const renderSummary = ({ item }) => <DeckSummaryCard id={ item.id } />
+    const newDeckId = this.getNewDeckId()
+
+    const renderSummary = ({ item }) => <DeckSummaryCard id={ item.id } doAnimation={ newDeckId === item.id } />
 
     return (
       <FlatList
