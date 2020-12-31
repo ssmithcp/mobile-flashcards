@@ -50,5 +50,13 @@ export function deleteDeck(id) {
 }
 
 export function saveCard(deckId, question, answer) {
-  return Promise.resolve()
+  return getDecks()
+    .then(decks => {
+      decks[deckId].cards.push({
+        question,
+        answer
+      })
+      return decks
+    })
+    .then(saveDecks)
 }

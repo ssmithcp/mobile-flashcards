@@ -28,6 +28,7 @@ function AddCard({ deckId, goBack, newCard }) {
         onChangeText={ setAnswer }
         placeholder={ 'Down' }
         value={ answer }
+        onSubmitEditing={ addCard }
       />
       <Button
         disabled={ question === '' || answer === '' }
