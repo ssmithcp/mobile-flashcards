@@ -13,7 +13,7 @@ export default function decks(state = {}, action) {
       [action.id]: {
         id: action.id,
         title: action.deckTitle,
-        timestamp: Date.now(),
+        timestamp: action.timestamp,
         cards: [],
       },
     }
