@@ -12,7 +12,11 @@ function DeckDetail({ deck, addCard, startQuiz, deleteDeck }) {
       <CardCountText>
         { deck.cards.length } cards
       </CardCountText>
-      <Button style={ { backgroundColor: blue } } onPress={ startQuiz }>
+      <Button
+        style={ { backgroundColor: blue } }
+        onPress={ startQuiz }
+        disabled={ deck.cards.length === 0 }
+      >
         <Text>Start quiz!</Text>
       </Button>
       <Button style={ { backgroundColor: green } } onPress={ addCard }>

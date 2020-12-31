@@ -39,6 +39,7 @@ function DeckDetailRouter({ deck, navigation, removeDeck }) {
       }
       { (screen === 'quiz' &&
         <Quiz
+          deck={ deck }
           goBack={ goBack }
         />)
       }
