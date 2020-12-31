@@ -8,6 +8,13 @@ import store from '../store'
 import DeckTabDisplay from './DeckTabDisplay'
 import DeckDetailRouter from './deckdetails/DeckDetailRouter'
 
+function toShortDeckName(name) {
+  name = name || 'Deck detail'
+  return name.length > 15
+    ? name.slice(0, 15) + '...'
+    : name
+}
+
 const Stack = createStackNavigator();
 
 function MainContainer() {
@@ -20,7 +27,10 @@ function MainContainer() {
             component={ DeckTabDisplay }
             options={ {headerMode: 'none', headerShown : false} }
           />
-          <Stack.Screen name='DeckDetail' component={ DeckDetailRouter } />
+          <Stack.Screen
+            name='DeckDetail'
+            options={({ route }) => ({ title: toShortDeckName(route.params.title) }) }
+            component={ DeckDetailRouter } />
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>

@@ -21,7 +21,10 @@ function DeckSummaryCard({ deck, navigation }) {
 
 
   const goToDeckDetails = () => {
-    navigation.navigate('DeckDetail', { id: deck.id })
+    navigation.navigate('DeckDetail', {
+      id: deck.id,
+      title: deck.title,
+    })
   }
 
   return (

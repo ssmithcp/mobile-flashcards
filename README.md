@@ -3,16 +3,6 @@ This react-native app was developed + tested using expo on web and an **iOS devi
 
 To run locally use `yarn install` then `yarn start`. If you're having trouble check out [create-react-native-app](https://github.com/expo/create-react-native-app) and [expo](https://docs.expo.io/get-started/installation/)
 
-## A couple compile warnings
-When compiling this app, I get a few warnings in external react-native modules. It seems like others are experiencing this too - just a heads up!
-
-    Compiled with warnings.
-    [...]/mobile-flashcards/node_modules/react-native-tab-view/lib/module/TabBarIndicator.js
-    Attempted import error: 'EasingNode' is not exported from 'react-native-reanimated'.
-
-    [...]/mobile-flashcards/node_modules/react-native-tab-view/lib/module/Pager.js
-    Attempted import error: 'EasingNode' is not exported from 'react-native-reanimated'.
-
 # Mobile flash cards!
 
 ## Preface
