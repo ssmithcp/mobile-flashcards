@@ -29,13 +29,20 @@ function Quiz({ deck, goBack }) {
   return (
     <CenteredContainer>
       { questionsAnswered === deck.cards.length && (
-        <H3 style={ { color: green, fontSize: 24, } }>
-          You got { correctAnswers } / { deck.cards.length } correct!
-        </H3>
+        <>
+          <H3 style={ { color: green, fontSize: 24, } }>
+            You got { correctAnswers } / { deck.cards.length } correct!
+          </H3>
+          <Button onPress={ goBack }>
+            <Text>Done!</Text>
+          </Button>
+        </>
       )}
       { questionsAnswered < deck.cards.length && (
         <>
-          <H3>Answering question { questionsAnswered } / { deck.cards.length }</H3>
+          <H3 style={ { marginBottom: 100 } }>
+            Answering question { questionsAnswered } / { deck.cards.length }
+          </H3>
           <H2>{ currentCard.question }?</H2>
           <ShowableAnswer answer={ currentCard.answer } />
           <Button
@@ -57,11 +64,11 @@ function Quiz({ deck, goBack }) {
               Incorrect
             </Text>
           </Button>
+          <Button onPress={ goBack }>
+            <Text>Quit</Text>
+          </Button>
         </>
       )}
-      <Button onPress={ goBack }>
-        <Text>Quit</Text>
-      </Button>
     </CenteredContainer>
   )
 }
