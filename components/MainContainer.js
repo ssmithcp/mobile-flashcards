@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import store from '../store'
 
 import DeckTabDisplay from './DeckTabDisplay'
-import DeckDetail from './DeckDetail'
+import DeckDetailRouter from './deckdetails/DeckDetailRouter'
 
 const Stack = createStackNavigator();
 
@@ -20,7 +20,7 @@ function MainContainer() {
             component={ DeckTabDisplay }
             options={ {headerMode: 'none', headerShown : false} }
           />
-          <Stack.Screen name='DeckDetail' component={ DeckDetail } />
+          <Stack.Screen name='DeckDetail' component={ DeckDetailRouter } />
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>
