@@ -10,10 +10,16 @@ import { receiveDecks } from '../store/actions'
 import DeckTabDisplay from './DeckTabDisplay'
 import DeckDetailRouter from './deckdetails/DeckDetailRouter'
 
+import { setLocalNotification } from '../helpers/reminder'
+
 const Stack = createStackNavigator();
 
 function StackScreens({ receiveDecks }) {
-  React.useEffect(() => { getDecks().then(receiveDecks) }, [])
+  React.useEffect(() => {
+    getDecks()
+      .then(receiveDecks)
+      .then(setLocalNotification)
+    }, [])
 
   const toShortDeckName = name => {
     name = name || 'Deck detail'

@@ -1,5 +1,7 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text } from 'react-native'
+
+import { setLocalNotification, clearLocalNotification } from '../../helpers/reminder'
 
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { red, green } from '../../helpers/colors'
@@ -26,6 +28,10 @@ function Quiz({ deck, goBack }) {
 
   const currentCard = deck.cards[questionsAnswered];
 
+  if (questionsAnswered === deck.cards.length) { // quiz completed
+    clearLocalNotification().then(setLocalNotification)
+  }
+
   return (
     <CenteredContainer>
       { questionsAnswered === deck.cards.length && (
@@ -47,7 +53,7 @@ function Quiz({ deck, goBack }) {
       { questionsAnswered < deck.cards.length && (
         <>
           <H3 style={ { marginBottom: 100 } }>
-            Answering question { questionsAnswered + 1 } / { deck.cards.length }
+            Answering question: { questionsAnswered + 1 } / { deck.cards.length }
           </H3>
           <H2>{ currentCard.question }?</H2>
           <ShowableAnswer answer={ currentCard.answer } />
