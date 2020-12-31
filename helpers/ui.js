@@ -47,6 +47,12 @@ export const H3 = styled.Text`
   margin-bottom: 30px;
 `
 
+export const CardCountText = styled.Text`
+  font-size: 24px;
+  color: #757575;
+  margin-bottom: 18px;
+`
+
 const DefaultInput = styled.TextInput`
   width: 80%;
   font-size: 32px;
@@ -68,6 +74,7 @@ const DefaultButton = styled.TouchableOpacity`
   padding: 20px 40px;
   border: 1px black solid;
   border-radius: 5px;
+  margin-bottom: 15px;
 `
 
 export function Button({ children, ...rest }) {

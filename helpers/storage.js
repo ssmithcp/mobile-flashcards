@@ -1,5 +1,5 @@
 export function getDecks() {
-
+  return Promise.resolve({})
 }
 
 function generateUID () {
@@ -12,10 +12,10 @@ export function saveDeck(title) {
   })
 }
 
-export function deleteDeck(title) {
-
+export function deleteDeck(id) {
+  return Promise.resolve()
 }
 
-export function saveCard(deckTitle, question, answer) {
-
+export function saveCard(deckId, question, answer) {
+  return Promise.resolve()
 }

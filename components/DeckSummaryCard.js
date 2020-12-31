@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 
 import { Text, Animated } from 'react-native'
 
-import { Card, Centered, H2 } from '../helpers/ui'
-import { gray } from '../helpers/colors'
+import { Card, Centered, H2, CardCountText } from '../helpers/ui'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 function DeckSummaryCard({ deck, navigation }) {
@@ -32,11 +31,9 @@ function DeckSummaryCard({ deck, navigation }) {
       <Card onPress={ goToDeckDetails } style={ { opacity: animationOpacity } }>
         <Centered>
           <H2>{ deck.title }</H2>
-          <Text
-            style={ { color: gray, fontSize: 24 } }
-          >
+          <CardCountText>
             { deck.cards.length } cards
-          </Text>
+          </CardCountText>
         </Centered>
       </Card>
     </TouchableOpacity>

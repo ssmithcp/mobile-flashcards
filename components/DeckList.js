@@ -6,10 +6,9 @@ import { FlatList } from 'react-native'
 import DeckSummaryCard from './DeckSummaryCard'
 
 class DeckList extends React.Component {
-  state = {
-    knownDecks: [],
-  }
-  getNewDeckId() {
+  scrolledDecks = {}
+
+  getDeckIdParam() {
     const { route: { params } } = this.props
     return params
       ? params.newDeckId
@@ -17,10 +16,10 @@ class DeckList extends React.Component {
   }
 
   componentDidUpdate() {
-    const newDeckId = this.getNewDeckId()
+    const newDeckId = this.getDeckIdParam()
     const { decks } = this.props
 
-    if (newDeckId) {
+    if (newDeckId && !this.scrolledDecks[newDeckId]) {
       let scrollToIndex = -1
 
       for (let ctr = 0; ctr < decks.length; ++ctr) {
@@ -34,15 +33,15 @@ class DeckList extends React.Component {
 
       if (scrollToIndex > -1) {
         console.log('scrolling to index: ', scrollToIndex)
+        this.scrolledDecks[newDeckId] = true;
         this.flatListRef.scrollToOffset({ animated: true, offset: scrollToIndex })
       }
     }
   }
 
-
   render() {
     const { decks, navigation } = this.props
-    const newDeckId = this.getNewDeckId()
+    const newDeckId = this.getDeckIdParam()
 
     const renderSummary = ({ item }) => <DeckSummaryCard id={ item.id } navigation={ navigation } />
 
