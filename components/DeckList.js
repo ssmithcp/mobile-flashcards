@@ -8,16 +8,11 @@ import DeckSummaryCard from './DeckSummaryCard'
 class DeckList extends React.Component {
   scrolledDecks = {}
 
-  getDeckIdParam() {
-    const { route: { params } } = this.props
-    return params
+  componentDidUpdate() {
+    const { decks, route: { params } } = this.props
+    const newDeckId = params
       ? params.newDeckId
       : null
-  }
-
-  componentDidUpdate() {
-    const newDeckId = this.getDeckIdParam()
-    const { decks } = this.props
 
     if (newDeckId && !this.scrolledDecks[newDeckId]) {
       let scrollToIndex = -1
@@ -41,8 +36,6 @@ class DeckList extends React.Component {
 
   render() {
     const { decks, navigation } = this.props
-    const newDeckId = this.getDeckIdParam()
-
     const renderSummary = ({ item }) => <DeckSummaryCard id={ item.id } navigation={ navigation } />
 
     return (
