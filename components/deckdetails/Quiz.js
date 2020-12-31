@@ -15,7 +15,7 @@ function ShowableAnswer({ answer }) {
       style={ { marginBottom: 42 } }
     >
       { show && (<Text style={ { color: green, fontSize: 24, } }>{answer}</Text>) }
-      { !show && (<Text style={ { color: red, fontSize: 24, } }>Answer</Text>) }
+      { !show && (<Text style={ { color: red, fontSize: 24, } }>Show answer</Text>) }
     </TouchableOpacity>
   )
 }
@@ -33,15 +33,21 @@ function Quiz({ deck, goBack }) {
           <H3 style={ { color: green, fontSize: 24, } }>
             You got { correctAnswers } / { deck.cards.length } correct!
           </H3>
+          <Button onPress={ () => {
+            setCorrectAnswers(0)
+            setQuestionsAnswered(0)
+          }}>
+            <Text>Restart quiz</Text>
+          </Button>
           <Button onPress={ goBack }>
-            <Text>Done!</Text>
+            <Text>Back to deck</Text>
           </Button>
         </>
       )}
       { questionsAnswered < deck.cards.length && (
         <>
           <H3 style={ { marginBottom: 100 } }>
-            Answering question { questionsAnswered } / { deck.cards.length }
+            Answering question { questionsAnswered + 1 } / { deck.cards.length }
           </H3>
           <H2>{ currentCard.question }?</H2>
           <ShowableAnswer answer={ currentCard.answer } />

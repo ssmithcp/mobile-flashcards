@@ -9,16 +9,17 @@ class DeckList extends React.Component {
   scrolledDecks = {}
 
   componentDidUpdate() {
-    const { decks, route: { params } } = this.props
+    const { decks, route: { params }, navigation } = this.props
     const newDeckId = params
       ? params.newDeckId
       : null
+    let deck = null
 
     if (newDeckId && !this.scrolledDecks[newDeckId]) {
       let scrollToIndex = -1
 
       for (let ctr = 0; ctr < decks.length; ++ctr) {
-        const deck = decks[ctr]
+        deck = decks[ctr]
 
         if (deck.id === newDeckId) {
           scrollToIndex = ctr;
@@ -28,6 +29,12 @@ class DeckList extends React.Component {
 
       if (scrollToIndex > -1) {
         this.scrolledDecks[newDeckId] = true;
+        setTimeout(() => {
+          navigation.navigate('DeckDetail', {
+            id: deck.id,
+            title: deck.title,
+          })
+        }, 750)
         this.flatListRef.scrollToOffset({ animated: true, offset: scrollToIndex })
       }
     }

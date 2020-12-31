@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { Text, Animated } from 'react-native'
+import { Animated } from 'react-native'
 
-import { Card, Centered, H2, CardCountText } from '../helpers/ui'
+import { Card, Centered, H2, CardCountText, AnimationDuration } from '../helpers/ui'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 function DeckSummaryCard({ deck, navigation }) {
@@ -13,7 +13,7 @@ function DeckSummaryCard({ deck, navigation }) {
     () => {
         Animated.timing(animationOpacity, {
           toValue: 1,
-          duration: 1250,
+          duration: AnimationDuration,
          useNativeDriver: true,
       }).start() },
     [animationOpacity])

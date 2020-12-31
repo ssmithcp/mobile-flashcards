@@ -7,6 +7,8 @@ import styled from 'styled-components';
 
 import { white } from './colors'
 
+export const AnimationDuration = 1250
+
 export const Centered = styled.View`
   display: flex;
   flex-direction: column;
