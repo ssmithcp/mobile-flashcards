@@ -64,7 +64,7 @@ const DefaultInput = styled.TextInput`
 
 export function TextInput({ children, ...rest }) {
   return (
-    <DefaultInput { ...rest } >
+    <DefaultInput autoCorrect={ false } { ...rest } >
       {children}
     </DefaultInput>
   )

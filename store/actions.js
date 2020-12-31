@@ -3,7 +3,7 @@ export const NEW_DECK = 'NEW_DECK'
 export const REMOVE_DECK = 'REMOVE_DECK'
 export const ADD_CARD_TO_DECK = 'ADD_CARD_TO_DECK'
 
-import { saveDeck, deleteDeck } from '../helpers/storage'
+import { saveDeck, saveCard, deleteDeck } from '../helpers/storage'
 
 export function receiveDecks(decks) {
   return {
@@ -26,19 +26,22 @@ export function newDeck(deckTitle) {
 
 export function removeDeck(id) {
   return dispatch => deleteDeck(id)
-    .then(() => {
+    .then(() =>
       dispatch({
         type: REMOVE_DECK,
         id,
       })
-    })
+    )
 }
 
 export function newCard(deckId, question, answer) {
-  return {
-    type: ADD_CARD_TO_DECK,
-    id: deckId,
-    question,
-    answer,
-  }
+  return dispatch => saveCard(deckId, question, answer)
+    .then(() =>
+      dispatch({
+        type: ADD_CARD_TO_DECK,
+        id: deckId,
+        question,
+        answer,
+      })
+    )
 }

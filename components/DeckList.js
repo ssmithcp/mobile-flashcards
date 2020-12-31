@@ -27,7 +27,6 @@ class DeckList extends React.Component {
       }
 
       if (scrollToIndex > -1) {
-        console.log('scrolling to index: ', scrollToIndex)
         this.scrolledDecks[newDeckId] = true;
         this.flatListRef.scrollToOffset({ animated: true, offset: scrollToIndex })
       }

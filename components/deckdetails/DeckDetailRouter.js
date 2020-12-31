@@ -7,6 +7,7 @@ import { removeDeck } from '../../store/actions'
 
 import DeckDetail from './DeckDetail'
 import AddCard from './AddCard'
+import Quiz from './Quiz'
 
 function DeckDetailRouter({ deck, navigation, removeDeck }) {
   const [screen, setScreen] = React.useState('main')
@@ -15,18 +16,32 @@ function DeckDetailRouter({ deck, navigation, removeDeck }) {
     return <></>
   }
 
+  const gotoAddCard = () => setScreen('addCard')
+  const gotoStartQuiz = () => setScreen('quiz')
+  const deleteDeck = () => removeDeck(deck.id).then(() => navigation.goBack())
+  const goBack = () => setScreen('main')
+
   return (
     <View style={ { flex: 1 } }>
       { (screen === 'main' &&
         <DeckDetail
           deck={ deck }
-          addCard={ () => setScreen('addCard') }
-          startQuiz={ () => startQuiz('quiz') }
-          deleteDeck={ () => removeDeck(deck.id).then(() => navigation.goBack()) }
+          addCard={ gotoAddCard }
+          startQuiz={ gotoStartQuiz }
+          deleteDeck={ deleteDeck }
         />)
       }
-      { (screen === 'addCard' && <AddCard />) }
-      { (screen === 'quiz' && <Quiz />) }
+      { (screen === 'addCard' &&
+        <AddCard
+          deckId={ deck.id }
+          goBack={ goBack }
+        />)
+      }
+      { (screen === 'quiz' &&
+        <Quiz
+          goBack={ goBack }
+        />)
+      }
     </View>
   )
 }
