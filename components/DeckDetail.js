@@ -1,10 +1,10 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-function DeckDetail() {
+function DeckDetail({ route: { params: { id: deckId }}}) {
   return (
     <View>
-      <Text>Deck details!</Text>
+      <Text>Deck details for deck { deckId }</Text>
     </View>
   )
 }

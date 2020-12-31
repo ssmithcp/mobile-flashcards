@@ -15,8 +15,12 @@ function MainContainer() {
     <NavigationContainer>
       <Provider store={ store }>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={ DeckTabDisplay } />
-          <Stack.Screen name="Detail" component={ DeckDetail } />
+          <Stack.Screen
+            name='Home'
+            component={ DeckTabDisplay }
+            options={ {headerMode: 'none', headerShown : false} }
+          />
+          <Stack.Screen name='DeckDetail' component={ DeckDetail } />
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>

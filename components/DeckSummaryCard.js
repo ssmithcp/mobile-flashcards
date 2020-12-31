@@ -7,7 +7,7 @@ import { Card, Centered, H2 } from '../helpers/ui'
 import { gray } from '../helpers/colors'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-function DeckSummaryCard({ deck }) {
+function DeckSummaryCard({ deck, navigation }) {
   const [ animationOpacity ] = React.useState(new Animated.Value(0))
 
   React.useEffect(
@@ -21,7 +21,7 @@ function DeckSummaryCard({ deck }) {
 
 
   const goToDeckDetails = () => {
-    console.log('going to details!')
+    navigation.navigate('DeckDetail', { id: deck.id })
   }
 
   return (

@@ -41,10 +41,10 @@ class DeckList extends React.Component {
 
 
   render() {
-    const { decks } = this.props
+    const { decks, navigation } = this.props
     const newDeckId = this.getNewDeckId()
 
-    const renderSummary = ({ item }) => <DeckSummaryCard id={ item.id } doAnimation={ newDeckId === item.id } />
+    const renderSummary = ({ item }) => <DeckSummaryCard id={ item.id } navigation={ navigation } />
 
     return (
       <FlatList
