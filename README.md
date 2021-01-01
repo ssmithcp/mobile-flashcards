@@ -17,7 +17,7 @@ This app is designed to be a 'study aid'. You can create new decks flash cards, 
 ## Add a new deck
 A 'deck' is a group of related flash cards. For example, you may have a deck of flash cards for math class and one for history. You can add a deck like this:
 
-![add deck](http://img.youtube.com/vi/_Zt0Qebko3Y/0.jpg)](http://www.youtube.com/watch?v=_Zt0Qebko3Y)
+[![add deck](http://img.youtube.com/vi/_Zt0Qebko3Y/0.jpg)](http://www.youtube.com/watch?v=_Zt0Qebko3Y)
 
 ## Add some questions
 
