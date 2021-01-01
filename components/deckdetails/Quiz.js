@@ -11,6 +11,8 @@ import { CenteredContainer, H2, H3, Button } from '../../helpers/ui'
 function ShowableAnswer({ answer }) {
   const [show, setShow] = React.useState(false)
 
+  React.useEffect(() => setShow(false), [answer])
+
   return (
     <TouchableOpacity
       onPress={ () => setShow(!show) }
