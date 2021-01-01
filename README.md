@@ -18,18 +18,21 @@ This app is designed to be a 'study aid'. You can create new decks flash cards, 
 A 'deck' is a group of related flash cards. For example, you may have a deck of flash cards for math class and one for history. You can add a deck like this:
 
 [![add deck](http://img.youtube.com/vi/_Zt0Qebko3Y/0.jpg)](http://www.youtube.com/watch?v=_Zt0Qebko3Y)
+
 Click to watch video!
 
 ## Add some questions
 After you've created a deck, add some flashcards to the deck
 
 [![add cards to deck](http://img.youtube.com/vi/En1z5PlyYZc/0.jpg)](http://www.youtube.com/watch?v=En1z5PlyYZc)
+
 Click to watch video!
 
 ## Take a Quiz
 After you've added some cards to your deck, take a quiz!
 
 [![take a quiz](http://img.youtube.com/vi/QkOA8m1DJ_8/0.jpg)](http://www.youtube.com/watch?v=QkOA8m1DJ_8)
+
 Click to watch video!
 
 ## Get reminders to study!
