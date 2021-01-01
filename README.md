@@ -9,7 +9,7 @@ To run locally use `yarn install` then `yarn start`. If you're having trouble ch
 This is a project I completed for udacity.com's '[React nano degree](https://d20vrrgs8k4bvw.cloudfront.net/documents/en-US/reactnd-syllabus-3.0.pdf)' program. The idea for this project was provided by udacity.com and I did the rest!
 
 ## Note on quality
-If any potential employers are looking at this project: please note that I completed this project to the minimal quality standard. I learned what I wanted to learn making this project and didn't spend more time on it than I needed - that leaves more time for other projects!
+If any potential employers are looking at this project: please note that this isn't a production ready app. I learned what I wanted to learn making this project and didn't spend more time on it than I needed - that leaves more time for other projects!
 
 ## Flash cards?
 This app is designed to be a 'study aid'. You can create new decks flash cards, add cards then test your knowledge with a quiz!
